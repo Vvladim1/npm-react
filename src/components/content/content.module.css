@@ -1,0 +1,13 @@
+.content {
+  grid-area: c;
+  background-color: rgb(98, 143, 241);
+}
+.profile {
+  padding: 10px;
+  display: flex;
+}
+.ava img {
+  width: 30%;
+}
+
+
