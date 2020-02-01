@@ -1,11 +1,11 @@
 import React from "react";
-// import s from './dialogItem.module.css';
+import s from './message.module.css';
 
 
 const Message = (props) => {
 
   return (
-    <div>{props.message}</div>
+    <div className={s.message}>{props.message}</div>
   );
 };
 

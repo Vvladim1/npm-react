@@ -13,7 +13,7 @@ const Profile = () => {
             alt="user"
           />
         </div>
-        <div>
+        <div className={s.nameBlock}>
           <h3>Vladimir</h3>
           <p>novice developer</p>
         </div>
