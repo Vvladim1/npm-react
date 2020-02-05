@@ -1,11 +1,17 @@
+let rerenderEntireTree = () => {
+  console.log("state chenged");
+};
+
 let state = {
   profilePage: {
     posts: [
       { id: 1, message: "Hello!", likesCounte: 15 },
       { id: 2, message: "how are you!", likesCounte: 20 },
       { id: 3, message: "Very vell!", likesCounte: 18 }
-    ]
+    ],
+    newPostText: "it-lesson"
   },
+
   dialogsPage: {
     dialogs: [
       { id: 1, name: "Dimych" },
@@ -21,6 +27,31 @@ let state = {
       { message: "Yo!!" }
     ]
   }
+};
+
+window.state = state;
+
+export const addNewPost = () => {
+  let newPost = {
+    id: 5,
+    message: state.profilePage.newPostText,
+    likesCounte: 0
+  };
+  if (newPost.message != "") {
+    state.profilePage.posts.push(newPost);
+    state.profilePage.newPostText = "";
+    rerenderEntireTree();
+  }
+};
+
+export const upDateNewPostText = newText => {
+  state.profilePage.newPostText = newText;
+  rerenderEntireTree();
+};
+
+export const subscribe = observer => {
+  // pattern
+  rerenderEntireTree = observer;
 };
 
 export default state;
