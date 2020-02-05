@@ -25,7 +25,8 @@ let state = {
       { message: "Hi!" },
       { message: "How are your it-kamasutra?" },
       { message: "Yo!!" }
-    ]
+    ],
+    newMessageText: "Yes!"
   }
 };
 
@@ -40,13 +41,26 @@ export const addNewPost = () => {
   if (newPost.message != "") {
     state.profilePage.posts.push(newPost);
     state.profilePage.newPostText = "";
-    rerenderEntireTree();
+    rerenderEntireTree(state);
   }
 };
-
 export const upDateNewPostText = newText => {
   state.profilePage.newPostText = newText;
-  rerenderEntireTree();
+  rerenderEntireTree(state);
+};
+
+export const addNewMessage = text => {
+  let newMessage = {
+    message: state.dialogsPage.newMessageText
+  };
+  state.dialogsPage.messages.push(newMessage);
+  state.dialogsPage.newMessageText = "";
+  rerenderEntireTree(state);
+};
+
+export const upDateNewMessageText = newText => {
+  state.dialogsPage.newMessageText = newText;
+  rerenderEntireTree(state);
 };
 
 export const subscribe = observer => {
@@ -55,3 +69,6 @@ export const subscribe = observer => {
 };
 
 export default state;
+
+
+

@@ -15,18 +15,25 @@ const Dialogs = props => {
 
   let addMessage = () => {
     let text = newMessageEl.current.value;
-    alert(text);
-  }
+    props.addNewMessage(text);
+  };
+
+  let onMessageChange = () => {
+    let text = newMessageEl.current.value;
+    props.upDateNewMessageText(text);
+  };
 
   return (
     <div className={s.dialogs}>
       <div className={s.dialogs_items}>{dialogsElement}</div>
       <div>
-      <div className={s.messages_items}>{messagesElements}</div>
-      <div>
-        <div><textarea ref={newMessageEl}/></div>
-        <button onClick={addMessage}>add message</button>
-      </div>
+        <div className={s.messages_items}>{messagesElements}</div>
+        <div>
+          <div>
+            <textarea ref={newMessageEl} onChange={onMessageChange} value={props.state.newMessageText} />
+          </div>
+          <button onClick={addMessage}>add message</button>
+        </div>
       </div>
     </div>
   );
