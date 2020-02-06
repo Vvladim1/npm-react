@@ -11,16 +11,15 @@ const MyPosts = props => {
   let newPostEl = React.createRef();
 
   let addPost = () => {
-    let text = newPostEl.current.value;
-    if (text != "") {
-      props.addNewPost();
-    }
+    debugger;
+   
+    props.addNewPost();
   };
 
   let onPostChange = () => {
     let text = newPostEl.current.value;
     props.upDateNewPostText(text);
-    // newPostEl.current.value = "";
+    
   };
 
   return (
