@@ -4,7 +4,7 @@ import Header from "./components/header/Header";
 import Navbar from "./components/nav/Navbar";
 import Content from "./components/content/Content";
 import Dialogs from "./components/Dialogs/Dialogs";
-import { Route, BrowserRouter } from "react-router-dom";
+import { Route } from "react-router-dom";
 import Musik from "./components/musik/musik";
 import News from "./components/news/news";
 import Settings from "./components/settings/settings";
@@ -12,7 +12,6 @@ import Settings from "./components/settings/settings";
 const App = props => {
   return (
     <div className="wrapper">
-      <BrowserRouter>
         <Header />
         <Navbar />
         <div className="app-wrapper-content">
@@ -25,7 +24,7 @@ const App = props => {
             render={() => (
               <Content
                 state={props.state.profilePage}
-                dispath={props.dispath} 
+                dispatch={props.dispatch} 
               />
             )}
           />
@@ -33,7 +32,6 @@ const App = props => {
           <Route path="/musik" component={Musik} />
           <Route path="/settings" component={Settings} />
         </div>
-      </BrowserRouter>
     </div>
   );
 };

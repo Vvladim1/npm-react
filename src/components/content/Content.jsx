@@ -8,7 +8,7 @@ const Content = props => {
       <Profile />
       <MyPsts
         state={props.state}
-        dispath={props.dispath}
+        dispatch={props.dispatch}
       />
     </div>
   );
