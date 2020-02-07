@@ -88,13 +88,13 @@ let store = {
   getState () {
     return this._state;
   },
-  _rerenderEntireTree () {
+  _callSubscriber () {
     console.log("state chenged");
   },
 
   subscribe (observer) {
     // pattern
-    this._rerenderEntireTree = observer;
+    this._callSubscriber = observer;
   },
 
 
@@ -108,13 +108,13 @@ let store = {
     if (newPost.message != "") {
       this._state.profilePage.posts.push(newPost);
       this._state.profilePage.newPostText = "";
-      this._rerenderEntireTree();
+      this._callSubscriber();
     }
   },
 
   upDateNewPostText (newText) {
     this._state.profilePage.newPostText = newText;
-    this._rerenderEntireTree();
+    this._callSubscriber();
   },
 
 
