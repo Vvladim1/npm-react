@@ -11,14 +11,18 @@ const MyPosts = props => {
   let newPostEl = React.createRef();
 
   let addPost = () => {
-    debugger;
+    
+   props.dispatch({type: 'ADD-NEW-POST'});
    
-    props.addNewPost();
+    // props.addNewPost();
   };
 
   let onPostChange = () => {
+
     let text = newPostEl.current.value;
-    props.upDateNewPostText(text);
+
+    props.dispatch({type: 'UPDATE-NEW-POST-TEXT', newText: text});
+    // props.upDateNewPostText(text);
     
   };
 

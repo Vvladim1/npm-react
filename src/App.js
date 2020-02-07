@@ -10,6 +10,7 @@ import News from "./components/news/news";
 import Settings from "./components/settings/settings";
 
 const App = props => {
+  
   return (
     <div className="wrapper">
       <BrowserRouter>
@@ -21,8 +22,7 @@ const App = props => {
             render={() => (
               <Dialogs
                 state={props.state.dialogsPage}
-                addNewMessage={props.addNewMessage}
-                upDateNewMessageText={props.upDateNewMessageText}
+                dispatch={props.dispatch}
               />
             )}
           />
@@ -31,8 +31,8 @@ const App = props => {
             render={() => (
               <Content
                 state={props.state.profilePage}
-                addNewPost={props.addNewPost}
-                upDateNewPostText={props.upDateNewPostText}
+                dispatch={props.dispatch}
+                
               />
             )}
           />
