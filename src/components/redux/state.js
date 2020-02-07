@@ -97,25 +97,45 @@ let store = {
     this._callSubscriber = observer;
   },
 
-
-
-  addNewPost () {
-    let newPost = {
-      id: 5,
-      message: this._state.profilePage.newPostText,
-      likesCounte: 0
-    };
-    if (newPost.message != "") {
-      this._state.profilePage.posts.push(newPost);
-      this._state.profilePage.newPostText = "";
-      this._callSubscriber();
+  dispath (action) {
+    if (action.type === 'ADD-NEW-POST') {
+      let newPost = {
+        id: 5,
+        message: this._state.profilePage.newPostText,
+        likesCounte: 0
+      };
+      if (newPost.message != "") {
+        this._state.profilePage.posts.push(newPost);
+        this._state.profilePage.newPostText = "";
+        this._callSubscriber();
+      } 
     }
-  },
+      else if (action.type === 'UPDATE-NEW-POST-TEXT') {
+        this._state.profilePage.newPostText = action.newText;
+        this._callSubscriber();
+      }
+  
+}
 
-  upDateNewPostText (newText) {
-    this._state.profilePage.newPostText = newText;
-    this._callSubscriber();
-  },
+
+
+  // addNewPost () {
+  //   let newPost = {
+  //     id: 5,
+  //     message: this._state.profilePage.newPostText,
+  //     likesCounte: 0
+  //   };
+  //   if (newPost.message != "") {
+  //     this._state.profilePage.posts.push(newPost);
+  //     this._state.profilePage.newPostText = "";
+  //     this._callSubscriber();
+  //   }
+  // },
+
+  // upDateNewPostText (newText) {
+  //   this._state.profilePage.newPostText = newText;
+  //   this._callSubscriber();
+  // },
 
 
   

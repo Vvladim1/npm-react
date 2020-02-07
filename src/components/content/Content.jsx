@@ -8,8 +8,7 @@ const Content = props => {
       <Profile />
       <MyPsts
         state={props.state}
-        addNewPost={props.addNewPost}
-        upDateNewPostText={props.upDateNewPostText}
+        dispath={props.dispath}
       />
     </div>
   );
