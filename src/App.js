@@ -31,8 +31,7 @@ const App = props => {
             render={() => (
               <Content
                 state={props.state.profilePage}
-                dispatch={props.dispatch}
-                
+                dispatch={props.dispatch} 
               />
             )}
           />

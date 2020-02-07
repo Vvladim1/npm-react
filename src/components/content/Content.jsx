@@ -10,7 +10,6 @@ const Content = props => {
       <MyPsts
         state={props.state}
         dispatch={props.dispatch}
-        
       />
     </div>
   );
