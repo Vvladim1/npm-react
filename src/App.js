@@ -8,6 +8,7 @@ import { Route } from "react-router-dom";
 import Musik from "./components/musik/musik";
 import News from "./components/news/news";
 import Settings from "./components/settings/settings";
+import Tests from './components/tests/tests';
 
 const App = props => {
   
@@ -32,6 +33,12 @@ const App = props => {
           <Route path="/news" component={News} />
           <Route path="/musik" component={Musik} />
           <Route path="/settings" component={Settings} />
+          <Route
+            path="/test"
+            render={() => (
+              <Tests state={props.state.testPage} dispatch={props.dispatch} />
+            )}
+          />
         </div>
     </div>
   );
