@@ -1,5 +1,6 @@
 import profileReducer from "./profile-reducer";
 import dialogsReducer from "./dialogs-reducer";
+import testReducer from "./test-reducer";
 
 let store = {
   _state: {
@@ -27,6 +28,14 @@ let store = {
         { id: 3, message: "Yo!!" }
       ],
       newMessageBody: '',
+    },
+    testPage: {
+      arreys: [
+        { id: 1, test: "test1!" },
+        { id: 2, test: "test2" },
+        { id: 3, test: "test3!!" }
+      ],
+      newTestText: 'test4' 
     }
   },
   getState() {
@@ -45,6 +54,7 @@ let store = {
 
     this._state.profilePage = profileReducer (this._state.profilePage, action);
     this._state.dialogsPage = dialogsReducer (this._state.dialogsPage, action);
+    this._state.testPage = testReducer (this._state.testPage, action);
 
     this._callSubscriber(this._state);
   }
