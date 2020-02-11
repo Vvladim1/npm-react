@@ -8,24 +8,24 @@ import {
 } from "../redux/dialogs-reducer";
 
 const Dialogs = props => {
-  let dialogsElement = props.state.dialogs.map(data => (
+  debugger;
+  let dialogsElement = props.dialogs.map(data => (
     <DialogItem name={data.name} id={data.id} />
   ));
-  let messagesElements = props.state.messages.map(datas => (
+  let messagesElements = props.messages.map(datas => (
     <Message message={datas.message} />
   ));
 
-  let onMBodyChange = () => {};
+  let newMessageBody = props.newMessageBody;
 
-  let newMessageBody = props.state.newMessageBody;
   let onSendMessageClick = () => {
-    props.dispatch(sendMessageCreator());
+    props.sendMessage();
   };
 
   let onNewMessageChange = e => {
     let body = e.target.value;
-    props.dispatch(updateNewMessageTextCreator(body));
-  };
+    props.onNewMessageBody(body)
+  }
 
   return (
     <div className={s.dialogs}>
@@ -33,15 +33,12 @@ const Dialogs = props => {
       <div>
         <div className={s.messages_items}>{messagesElements}</div>
         <div>
-          <div>
-            <textarea
-              onChange={onNewMessageChange}
-              value={newMessageBody}
-              placeholder="send yor message"
-            />
-          </div>
-          <button onClick={onSendMessageClick}>add message</button>
+          <textarea  onChange={onNewMessageChange}
+                    value={props.newMessageBody}
+                    placeholder='send yor message'
+                    />
         </div>
+        <button onClick={onSendMessageClick} >click</button>
       </div>
     </div>
   );

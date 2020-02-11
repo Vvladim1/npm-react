@@ -6,24 +6,27 @@ import { addPostActionCreator, updateNewPostTextActionCreator } from "../../redu
 
 
 const MyPosts = props => {
-  let postsElements = props.state.posts.map(data => (
+  debugger;
+  let postsElements = props.posts.map(data => (
     <Post message={data.message} likesCounte={data.likesCounte} />
   ));
 
   let newPostEl = React.createRef();
 
   let addPost = () => {
-
-      props.dispatch(addPostActionCreator());
+      props.addPost();
+      // props.dispatch(addPostActionCreator());
     
   };
 
   let onPostChange = () => {
 
     let text = newPostEl.current.value;
-    let action = updateNewPostTextActionCreator(text);
-    props.dispatch(action);
+    props.updateNewPostText(text);
+    // let action = updateNewPostTextActionCreator(text);
+    // props.dispatch(action);
   };
+  
 
   return (
     <div className={s.myposts}>
@@ -33,7 +36,7 @@ const MyPosts = props => {
           <textarea
             ref={newPostEl}
             onChange={onPostChange}
-            value={props.state.newPostText}
+            value={props.areaText}
           />
         </div>
         <div>

@@ -3,15 +3,14 @@ import "./App.css";
 import Header from "./components/header/Header";
 import Navbar from "./components/nav/Navbar";
 import Content from "./components/content/Content";
-import Dialogs from "./components/Dialogs/Dialogs";
+import DialogsContainer from './components/Dialogs/DialogsContainer';
 import { Route } from "react-router-dom";
 import Musik from "./components/musik/musik";
 import News from "./components/news/news";
 import Settings from "./components/settings/settings";
-import Tests from './components/tests/tests';
+import TestsContainer from './components/tests/testsContainer';
 
 const App = props => {
-  
   return (
     <div className="wrapper">
         <Header />
@@ -19,13 +18,14 @@ const App = props => {
         <div className="app-wrapper-content">
           <Route
             path="/dialogs"
-            render={() => <Dialogs state={props.state.dialogsPage} dispatch={props.dispatch} />}
+            render={() => <DialogsContainer store={props.store} 
+                                            dispatch={props.dispatch} />}
           />
           <Route
             path="/content"
             render={() => (
               <Content
-                state={props.state.profilePage}
+                store={props.store}
                 dispatch={props.dispatch} 
               />
             )}
@@ -36,7 +36,7 @@ const App = props => {
           <Route
             path="/test"
             render={() => (
-              <Tests state={props.state.testPage} dispatch={props.dispatch} />
+              <TestsContainer store={props.store} dispatch={props.dispatch} />
             )}
           />
         </div>

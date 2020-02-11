@@ -1,22 +1,22 @@
 import React from "react";
-import { addTestCreator, updateNewTestTextCreator } from "../redux/test-reducer";
+// import { addTestCreator, updateNewTestTextCreator } from "../redux/test-reducer";
 import TestItem from "./test/test";
 
 const Tests = props => {
 
-  let testsElement = props.state.arreys.map(data => (
+  let testsElement = props.arreys.map(data => (
     <TestItem test={data.test} id={data.id} />
   ));
 
-  let newTestText = props.state.newTestText;
+  let newTestText = props.newTestText;
 
   let onTestTextClick = () => {
-    props.dispatch(addTestCreator());
+    props.onTestTextClick();
   }
 
   let onNewTestChange = (e) => {
     let testtext = e.target.value;
-    props.dispatch(updateNewTestTextCreator(testtext));
+    props.onNewTestChange(testtext);
   }
 
   return (
@@ -31,7 +31,6 @@ const Tests = props => {
         </div>
         <button onClick={onTestTextClick}>add test</button>
       </div>
-      
   );
 };
 

@@ -1,14 +1,14 @@
 import React from "react";
-import MyPsts from "./MyPosts/MyPosts";
 import Profile from "./profile/Profile";
+import MyPostsContainer from "./MyPosts/myPostConteiner";
 
 const Content = props => {
-  
+  // debugger;
   return (
     <div>
       <Profile />
-      <MyPsts
-        state={props.state}
+      <MyPostsContainer
+        store={props.store}
         dispatch={props.dispatch}
       />
     </div>
